@@ -13,10 +13,13 @@ const RegistrationForm = () => {
 
 	const inputChangeHandler = (event) => {
 		const currentInput = event.target.name
-		setUserInput({
-            ...userinput,
-            [currentInput] : event.target.value,
-        });
+
+		setUserInput((prevState)=>{
+			return {
+				...prevState,
+				[currentInput] : event.target.value
+			}
+		})
 	};
 
 	const submitHandler = (event) => {
